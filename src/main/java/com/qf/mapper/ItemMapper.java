@@ -1,0 +1,21 @@
+package com.qf.mapper;
+
+import com.qf.pojo.Item;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+/**
+ * item的dao层接口.
+ */
+public interface ItemMapper {
+
+    //1. 查询商品的总条数
+    Long findCountByName(@Param("name")String name);
+
+
+    //2. 分页查询商品的具体信息
+    List<Item> findItemByNameLikeAndLimit(@Param("name")String name,
+                                          @Param("offset")Integer offset,
+                                          @Param("size")Integer size);
+}
